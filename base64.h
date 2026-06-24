@@ -1,6 +1,12 @@
 #ifndef __BASE64_H_
 #define __BASE64_H_
 
+#include <stddef.h>
+#include <stdint.h>
+#include <string.h>
+//------------------------------------------------------------------------------
+
+
 // Function return values
 #define B64R_SUCCESS  0
 #define B64R_ERR_INPUT_PARAM_NULL  -1
@@ -23,7 +29,7 @@ int base64_decode(const char*, const size_t, unsigned char*, size_t*);
 
 
 // Function to encode a binary buffer into Base64
-int base64_encode(
+inline int base64_encode(
     const unsigned char *input,
     const size_t input_length,
     const size_t output_size,
@@ -74,7 +80,7 @@ int base64_encode(
 
 
 // Function to decode a Base64 encoded string into binary data
-int base64_decode(
+inline int base64_decode(
     const char *input,
     const size_t output_size,
     unsigned char *output,
